@@ -10,8 +10,8 @@ RUN yum groupinstall -y "Sugar Desktop Environment"
 RUN adduser sugaruser
 
 #Setting password
-RUN echo "sugar\nsugar" | passwd --stdin root
-RUN echo "sugar\nsugar" | passwd --stdin sugaruser
+RUN echo "sugar" | passwd --stdin root
+RUN echo "sugar" | passwd --stdin sugaruser
 
 #Patch for gtk glitches
 RUN rm -rf /usr/lib/python2.7/site-packages/sugar
