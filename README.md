@@ -10,19 +10,13 @@ You just need to have Docker launched
 
 ### Usage
 
-#### Launch Sugar
+#### Launch Sugar (auto detect .activity folders in current directory)
 ```sh
 $ sh run.sh
 ```
 
-#### Launch Sugar and add an actvity from a folder located on the host
+#### Launch Sugar (auto detect .activity folders in other directories)
 
 ```sh
-$ sh run.sh  MyActivity.Activity
-```
-
-#### Launch Sugar and add multiple activities from folders located on the host
-
-```sh
-$ sh run.sh  MyActivity.Activity SecondActivity.Activity
+$ sh run.sh  folder1 folder2 . ../
 ```
