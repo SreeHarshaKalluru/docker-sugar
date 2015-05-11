@@ -1,14 +1,15 @@
 USER_UID=$(id -u)
 USER_GID=$(id -g)
 
-activity=""
-if [ $# -eq 1 ]
-then
-    pwd=`pwd`
-    activity_dir=$1
-    folder=`basename $activity_dir`
-    activity="--volume=$pwd/$activity_dir:/usr/share/sugar/activities/$folder"
-fi
+pwd=`pwd`
+activities=""
+for var in "$@"
+do
+    folder=`basename $var`
+    activity="--volume=$pwd/$var:/usr/share/sugar/activities/$folder"
+    activities=" $activities $activity"
+done
+
 
 docker run -ti --rm \
        --privileged \
@@ -19,6 +20,6 @@ docker run -ti --rm \
        --pid=host \
        --volume=/tmp/.X11-unix:/tmp/.X11-unix \
        --volume=/run/user/${USER_UID}/pulse:/run/pulse \
-       $activity \
+       $activities \
        mikkl/sugar \
        su sugaruser -c 'sugar-runner --resolution 800x600'
