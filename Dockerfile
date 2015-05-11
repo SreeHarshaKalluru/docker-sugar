@@ -13,8 +13,8 @@ RUN adduser sugaruser
 RUN echo "sugar" | passwd --stdin root
 RUN echo "sugar" | passwd --stdin sugaruser
 
-#Patch for gtk glitches
-RUN rm -rf /usr/lib/python2.7/site-packages/sugar
-RUN ln -s /usr/lib/python2.7/site-packages/sugar3 /usr/lib/python2.7/site-packages/sugar
+RUN yum install -y sugar-runner
+
+RUN mkdir /var/run/dbus
 
 CMD "/bin/bash"
