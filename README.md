@@ -21,7 +21,7 @@ $ sh run.sh
 $ sh run.sh  MyActivity.Activity
 ```
 
-#### Launch Sugar and add multiple actvities from folders located on the host
+#### Launch Sugar and add multiple activities from folders located on the host
 
 ```sh
 $ sh run.sh  MyActivity.Activity SecondActivity.Activity
