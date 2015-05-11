@@ -3,11 +3,35 @@ USER_GID=$(id -g)
 
 pwd=`pwd`
 activities=""
+
+if [ "$#" -eq 0 ]
+then
+    fvar="*"
+    for f in $fvar
+    do
+        folder=`basename $f`
+        if [[ "$folder" == *.activity ]]
+        then
+            fullpath=`readlink -f $f`
+            activity="--volume=$fullpath:/usr/share/sugar/activities/$folder"
+            activities=" $activities $activity"
+        fi
+    done
+fi
+
 for var in "$@"
 do
-    folder=`basename $var`
-    activity="--volume=$pwd/$var:/usr/share/sugar/activities/$folder"
-    activities=" $activities $activity"
+    fvar="$var/*"
+    for f in $fvar
+    do
+        folder=`basename $f`
+        if [[ "$folder" == *.activity ]]
+        then
+            fullpath=`readlink -f $f`
+            activity="--volume=$fullpath:/usr/share/sugar/activities/$folder"
+            activities=" $activities $activity"
+        fi
+    done
 done
 
 
