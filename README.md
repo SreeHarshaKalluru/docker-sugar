@@ -6,8 +6,10 @@ It should work on GNU/Linux with X11 and pulseaudio.
 
 
 ### Requirements
-You need have Docker ready and launched
+You just need to have Docker launched
+
 ### Usage
+
 #### Launch Sugar
 ```sh
 $ sh run.sh
