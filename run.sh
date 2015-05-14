@@ -10,6 +10,7 @@ DISABLE_CURRENT_DIRECTORY=0
 DISABLE_SUGAR_PERSISTANCE=0
 DISABLE_SUGAR_RUNNER_PERSISTANCE=0
 VOLUMES=""
+RESOLUTION="800x600"
 
 while [[ $# > 0 ]]
 do
@@ -36,6 +37,10 @@ do
 	    ;;
 	--activity)
 	    ACTIVITIES[${#ACTIVITIES[@]}]=`readlink -f $2`
+	    shift
+	    ;;
+	--resolution)
+	    RESOLUTION="$2"
 	    shift
 	    ;;
 	*)
@@ -87,4 +92,4 @@ docker run -ti --rm \
        --volume=/run/user/${USER_UID}/pulse:/run/pulse \
        $VOLUMES \
        mikkl/sugar \
-       su sugaruser -c 'sugar-runner --resolution 800x600'
+       su sugaruser -c "sugar-runner --resolution $RESOLUTION"
