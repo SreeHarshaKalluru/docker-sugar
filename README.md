@@ -21,7 +21,7 @@ $ sh run.sh myfolder myfolder2
 ```
 
 #### Options
-- --disable-current-directory # Don't use the current directory for loading .activity folders
+- --disable-current-directory # Don't use the current directory to load .activity folders
 - --disable-sugar-runner-persistance # Don't map sugar-runner folder
 - --disable-sugar-persistance # Don't map sugar folder
 - --sugar-persistance folder # Set a folder for .sugar persistance folder
