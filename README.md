@@ -13,6 +13,8 @@ You just need to have Docker launched
 $ sh run.sh
 ```
 
+*  [Demo](https://raw.githubusercontent.com/mikklfr/docker-sugar/master/demo.gif)
+
 #### Launch Sugar and provide folders containing .activity folders
 ```sh
 $ sh run.sh myfolder myfolder2
