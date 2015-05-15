@@ -58,9 +58,14 @@ fi
 
 for var in ${ACTIVITIES[*]}
 do
-    folder=`basename $var`
-    activity="--volume=$var:/usr/share/sugar/activities/$folder"
-    VOLUMES=" $VOLUMES $activity"
+    for d in $var/*; do
+	if [[ "$d" == *.activity ]]
+	then
+	    folder=`basename $d`
+	    activity="--volume=$d:/usr/share/sugar/activities/$folder"
+	    VOLUMES=" $VOLUMES $activity"
+	fi
+    done
 done
 
 if [ "$DISABLE_SUGAR_PERSISTANCE" -eq "0" ]
